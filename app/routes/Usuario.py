@@ -28,9 +28,7 @@ def criar_usuario(usuario: dict):
 
 @routes.get("/usuarios")
 def lista_usuarios():
-    """
-    Retorna todos os usuários do banco de dados.
-    """
+    """ Retorna todos os usuários do banco de dados."""
     session = proxima_session() # Obtém a sessão
     statement = select(Usuario)
     users = session.exec(statement).all()

@@ -1,5 +1,7 @@
 Amanda:
-  - routes usuário (crud)
-  -
+  - endpoints usuário (crud)
+  - endpoints despesas (crud)
+  - relacionamento usuario tem despesa
+  
 Cleuvya:
-  -
+  - endpoints grupo (crud)

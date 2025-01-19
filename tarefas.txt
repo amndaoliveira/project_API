@@ -1,0 +1,5 @@
+Amanda:
+  - routes usuário (crud)
+  -
+Cleuvya:
+  -

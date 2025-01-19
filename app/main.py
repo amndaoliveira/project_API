@@ -1,21 +1,17 @@
 from fastapi import FastAPI
-from sqlmodel import create_engine, SQLModel # isso que vai criar o database
-
-engine = create_engine("sqlite:///database.db") #cria o banco de dados
+from sqlmodel import Session, create_engine, SQLModel
+from app.db import initialize_database # isso que vai criar o database
+from app.routes.Usuario import routes as rotas_usuario
 
 app = FastAPI()
-
-def create_db():
-    SQLModel.metadata.create_all(engine)
-
-
-@app.on_event("startup") #mudar isso aqui
-def start():
-        create_db()
-
+app.include_router(rotas_usuario)
 
 @app.get("/")
 def test():
     return "hello test"
 
+if __name__ == "__main__":
+    print("oi, to aqui")
+    initialize_database()
+    print("Banco de dados inicializado com sucesso!")
 

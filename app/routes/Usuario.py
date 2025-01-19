@@ -1,4 +1,4 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, HTTPException
 from app.db import get_session
 from app.models.Usuario import Usuario
 from sqlmodel import SQLModel, Field, Session, create_engine, select
@@ -55,7 +55,7 @@ def atualizar_usuario(usuario_id: int, usuario: Usuario):
 
 
 @routes.delete("/deletar")
-def deletar_usuario(usuario_is : int):
+def deletar_usuario(usuario_id : int):
     session = proxima_session
     user = Session.get(Usuario, usuario_id)
     user = session.get(Usuario, usuario_id)

@@ -11,20 +11,28 @@ def proxima_session():
     session_generator = get_session()
     return next(session_generator)
 
+
 @routes.post("/criarUsuario")
 def criar_usuario(usuario: dict):
     nome = usuario.get("nome")
     idade = usuario.get("idade")
     email = usuario.get("email")
 
+    #verificar se o usuario ja existe com o mesmo email
+    session = proxima_session()
+    #usuario_existente = Session.query(Usuario).filter(Usuario.email == email).first()
+    usuario_existente = session.exec(select(Usuario).where(Usuario.email == email)).first()
+    if usuario_existente:
+        raise HTTPException(status_code=400, detail="Há outro usuário já cadastrado com este email.")
+
     user = Usuario(nome=nome, idade=idade, email=email)
 
-    session = proxima_session()  # Obtém a sessão
+    #session = proxima_session()  # Obtém a sessão
     created_user = session.add(user)
     session.commit()  # Persiste as alterações
     session.refresh(user)
 
-    return created_user
+    return "Usuário cadastrado com sucesso."
 
 @routes.get("/usuarios")
 def lista_usuarios():

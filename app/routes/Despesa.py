@@ -69,3 +69,16 @@ def selecionar_despesa(despesa_id: int):
         raise HTTPException(status_code=404, detail="Despesa não encontrada")
     
     return desp
+
+"""procura as despesas do usuário pelo id"""
+@routes.get("/desp_por_user/{usuario_id}")
+def desp_por_user(usuario_id : int):
+    session = proxima_session()
+    statement = select(Despesa).where(Despesa.usuario_id == usuario_id) #o id da despesa seja igual ao id do usuario
+    results = session.exec(statement).all()
+    if not results:
+        raise HTTPException(status_code=404, detail="Nenhuma despesa encontrada para esse usuário")
+    for despesa in results:
+        print(despesa)
+
+    return results

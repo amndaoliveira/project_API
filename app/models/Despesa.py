@@ -13,4 +13,11 @@ class Despesa(SQLModel, table=True):
 
     usuario_id: int = Field(foreign_key="usuario.id")
     usuario: Optional[Usuario] = Relationship(back_populates="despesas")
-    #falta grupo ter despesas
+    
+    """
+    @TODO
+    - criar relacao com grupo
+    - deixar relação com usuario optional
+    """
+    
+    

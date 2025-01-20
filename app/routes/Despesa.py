@@ -10,8 +10,8 @@ def proxima_session():
     session_generator = get_session()
     return next(session_generator)
 
-@routes.post("/add_despesa")
-def add_despesa(despesa : dict):
+@routes.post("/criar_despesa_usuario")
+def add_despesa_ao_usuario(despesa : dict):
     valor = despesa.get("valor")
     descricao = despesa.get("descricao")
     status = despesa.get("status")
@@ -25,6 +25,15 @@ def add_despesa(despesa : dict):
     session.refresh(desp)
 
     return created_desp
+
+@routes.post("/criar_despesa_grupo")
+def add_despesa_ao_grupo():
+    """"
+        @TODO
+        criar despesa ligada ao grupo
+    """
+
+    return "@TODO"
 
 @routes.get("/listar_despesa")
 def listar_despesa():

@@ -1,5 +1,7 @@
 from sqlmodel import SQLModel, Field, Relationship
-from typing import List, Optional
+from typing import List
+
+from app.models.UsuarioGrupo import UsuarioGrupo
 
 class Usuario(SQLModel, table=True):
     __tablename__: 'usuarios'
@@ -10,4 +12,5 @@ class Usuario(SQLModel, table=True):
     idade: int | None = Field(default=None)
 
     despesas: List['Despesa'] = Relationship(back_populates="usuario")
-    #falta usuario ter grupos
+    
+    grupos: List['Grupo'] = Relationship(back_populates="users", link_model=UsuarioGrupo)

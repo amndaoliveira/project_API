@@ -1,10 +1,53 @@
-# Python-generated files
+# Python bytecode files
 __pycache__/
-*.py[oc]
-build/
-dist/
-wheels/
-*.egg-info
+*.py[cod]
 
-# Virtual environments
-.venv
+# Virtual environment directories
+venv/
+env/
+
+# FastAPI and SQLModel specific files (if any temporary database files or migrations are used)
+*.sqlite
+*.db
+
+# IDE and editor files
+.vscode/
+.idea/
+
+# PyCharm project files
+*.iml
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Logs
+*.log
+
+# Coverage reports
+.coverage
+*.coveragerc
+coverage.xml
+nosetests.xml
+test_*.xml
+*.hypothesis/
+
+# Docker files
+docker-compose.override.yml
+
+# Temporary files created by operating systems
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Environment variables files (keep this secure and local)
+.env
+*.env
+
+# SQLModel database migrations (if any)
+migrations/
+
+# FastAPI's async worker files (if using)
+*.pid
+
+database/

@@ -11,6 +11,7 @@ class Usuario(SQLModel, table=True):
     email: str =Field(default=None, nullable=False, unique=True) #definir o email como chave unica e que não pode haver outro usuário com o mesmo
     idade: int | None = Field(default=None)
 
-    despesas: List['Despesa'] = Relationship(back_populates="usuario")
+    despesas: List['Despesa'] = Relationship(back_populates="usuario", cascade_delete=True)
     
     grupos: List['Grupo'] = Relationship(back_populates="users", link_model=UsuarioGrupo)
+    grupo_admin: "Grupo"= Relationship(back_populates="administrador")

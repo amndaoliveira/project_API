@@ -1,7 +1,15 @@
 Amanda:
-  - endpoints usuário (crud)
-  - endpoints despesas (crud)
-  - relacionamento usuario tem despesa
+  - endpoints usuário  e despesas
+  - relacionamentos usuario/ despesa, grupo/despesa, adm/grupo
+  - endpoints de grupo (add user ao grupo e deletar user do grupo)
+
   
 Cleuvya:
   - endpoints grupo (crud)
+  - relacionamento grupo/usuário
+  - elaboração mermaid
+
+
+Pendentes:
+  - criação do .venv
+  - remoção do .venv do git

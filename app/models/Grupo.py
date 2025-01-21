@@ -11,5 +11,9 @@ class Grupo(SQLModel, table=True):
     nome: str
     descricao: str
 
+    administrador_id: int = Field(default=None, foreign_key="usuario.id", unique=True)
     users: List[Usuario] = Relationship(back_populates="grupos", link_model=UsuarioGrupo)
+    administrador: Usuario = Relationship(back_populates="grupo_admin")
     
+    # Relacionamento 1:N entre Grupo e Despesa
+    despesas: List["Despesa"] = Relationship(back_populates="grupo")

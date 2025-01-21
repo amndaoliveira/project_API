@@ -4,7 +4,9 @@ from app.models.Usuario import Usuario
 from sqlmodel import SQLModel, Field, Session, create_engine, select
 
 
-routes = APIRouter()
+routes = APIRouter(
+    tags=['Usuario']
+)
 
 
 def proxima_session():

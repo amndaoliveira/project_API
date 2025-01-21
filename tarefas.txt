@@ -8,8 +8,8 @@ Cleuvya:
   - endpoints grupo (crud)
   - relacionamento grupo/usuário
   - elaboração mermaid
+  - criação do .venv 
 
 
-Pendentes:
-  - criação do .venv
-  - remoção do .venv do git
+Ambos:
+  - tratamento do .venv
